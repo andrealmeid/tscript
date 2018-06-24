@@ -8,4 +8,6 @@ The output is in CSV format. You can redirect the output like "./runall.sh -c > 
 
 Place the expected asnwer in out/ dir with the same name of input file
 
-Usage: ./tspcript (-c|-m|-b|-e)
+Usage: `./runall.sh (-c|-m|-b|-e)`
+
+Don't forget to `chmod +x runall.sh`
