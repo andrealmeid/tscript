@@ -2,10 +2,10 @@
 
 #  ████████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗
 #  ╚══██╔══╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝
-#     ██║   ███████╗██║     ██████╔╝██║██████╔╝   ██║   
-#     ██║   ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   
-#     ██║   ███████║╚██████╗██║  ██║██║██║        ██║   
-#     ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
+#     ██║   ███████╗██║     ██████╔╝██║██████╔╝   ██║
+#     ██║   ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║
+#     ██║   ███████║╚██████╗██║  ██║██║██║        ██║
+#     ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝
 
 # This bash script runs all the test cases in "in/" dir
 # Feel free to modify/distribute
@@ -16,14 +16,14 @@
 # Usage: (-c|-m|-b|-e)
 # copyleft by tony :]
 
-# print the CSV header
-echo "mode; testname; status; time; cost; answer; accuracy"
-
-# check argument 
+# check argument
 if [[ ! $1 = "-c" && ! $1 = "-m" && ! $1 = "-b" && ! $1 = "-e" ]]; then
     echo "Usage: (-c|-m|-b|-e)"
     exit 0
 fi
+
+# print the CSV header
+echo "testname; mode; status; time; cost; answer; accuracy"
 
 # for each test file...
 for testname in ./in/teste*; do
@@ -48,10 +48,11 @@ for testname in ./in/teste*; do
     else
         answer="none"
         accuracy="none"
-    fi  
-    
+    fi
+
     # print the info
     printf "${testname:5}; "
+    printf "'${1}'; "
     printf "${status:13}; "
     printf "${time:13}; "
     printf "${cost}; "
